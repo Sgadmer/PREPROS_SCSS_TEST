@@ -1,0 +1,32 @@
+@import "nullstyle.scss";
+
+/*ТЕСТ SCSS*/
+//ЭТОТ КОМЕНТАРИЙ НЕ ПРОЙДЕТ
+
+
+$fs_span: 80px;
+$fcolor_span: blue;    ///Переменные
+
+%somePattern{
+    border-bottom: 2px solid red;
+    border-style: dashed;
+}                        ////ШАБЛОН
+
+@mixin someMixin ($font-style){
+    font-style: $font-style;
+}                        ////МИКСИН
+
+.block {
+    &__text {
+        font-size: $fs_span;
+        background-color: rgb(194, 255, 170);
+        width: 1920px / 10000px * 100%; ////МАТЕМАТИЧЕСКИЕ ВЫЧИСЛЕНИЯ
+    }
+    &__span {
+        color: $fcolor_span;
+        @extend %somePattern;       ////ШАБЛОН ПОДКЛЮЧЕН
+        @include someMixin (italic);////МИКСИН ПОДКЛЮЧЕН
+    }
+}
+
+/*--------------------*/
